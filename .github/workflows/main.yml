@@ -19,8 +19,8 @@ jobs:
         ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
-    - name: run python
-      run: sudo python ~/test/github_actions_test/main.py
+    - name: run python script
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "python ${{ secrets.WORK_DIR }}/main.py"
     - name: cleanup
       run: rm -rf ~/.ssh
       
