@@ -20,7 +20,7 @@ jobs:
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: run python
-      run: python /root/test/github_actions_test/main.py
+      run: sudo python /root/test/github_actions_test/main.py
     - name: cleanup
       run: rm -rf ~/.ssh
       
