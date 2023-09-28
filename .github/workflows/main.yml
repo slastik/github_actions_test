@@ -20,7 +20,7 @@ jobs:
     - name: connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: run python script
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "service nginx stop"
+      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "service nginx restart"
     - name: cleanup
       run: rm -rf ~/.ssh
       
